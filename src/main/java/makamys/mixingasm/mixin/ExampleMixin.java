@@ -1,4 +1,4 @@
-package ${package}.mixin;
+package makamys.mixingasm.mixin;
 
 import java.util.List;
 

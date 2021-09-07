@@ -1,14 +1,14 @@
-package ${package};
+package makamys.mixingasm;
 
 import net.minecraft.init.Blocks;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 
-@Mod(modid = ${mainclass}.MODID, version = ${mainclass}.VERSION)
-public class ${mainclass}
+@Mod(modid = Mixingasm.MODID, version = Mixingasm.VERSION)
+public class Mixingasm
 {
-    public static final String MODID = "${modid}";
+    public static final String MODID = "mixingasm";
     public static final String VERSION = "@VERSION@";
 
     @EventHandler
