@@ -1,0 +1,15 @@
+[
+{
+  "modid": "${modid}",
+  "name": "Mixingasm",
+  "description": "Improves compatibility between mixin mods and ASM mods",
+  "version": "${version}",
+  "mcversion": "${minecraft_version}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["makamys"],
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
