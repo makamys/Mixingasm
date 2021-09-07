@@ -1,0 +1,1 @@
+net.tclproject.mysteriumlib.asm.common.CustomClassTransformer
