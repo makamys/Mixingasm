@@ -2,7 +2,6 @@
     "required": true,
     "minVersion": "0.6",
     "package": "makamys.mixingasm.mixin",
-    "refmap": "mixingasm.mixin.refmap.json",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
         
