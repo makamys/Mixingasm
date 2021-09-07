@@ -5,7 +5,7 @@
     "refmap": "mixingasm.mixin.refmap.json",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "ExampleMixin"
+        
     ],
     "plugin": "makamys.mixingasm.MixinConfigPlugin"
 }
