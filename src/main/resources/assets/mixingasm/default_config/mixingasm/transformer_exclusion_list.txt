@@ -2,3 +2,5 @@
 # Delete this file to generate a file with the newest defaults.
 
 net.tclproject.mysteriumlib.asm.common.CustomClassTransformer
+com.unascribed.backlytra.asm.BacklytraTransformer
+lumien.resourceloader.asm.ClassTransformer
