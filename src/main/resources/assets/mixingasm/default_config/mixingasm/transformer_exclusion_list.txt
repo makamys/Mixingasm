@@ -1,1 +1,4 @@
+# The classes listed in this file will get added to the mixin environment's transformer exclusion list.
+# Delete this file to generate a file with the newest defaults.
+
 net.tclproject.mysteriumlib.asm.common.CustomClassTransformer
