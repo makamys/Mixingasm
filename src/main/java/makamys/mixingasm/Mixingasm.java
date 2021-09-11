@@ -1,21 +1,48 @@
 package makamys.mixingasm;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import makamys.mclib.core.MCLib;
-import makamys.mclib.core.MCLibModules;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import static makamys.mixingasm.MixinConfigPlugin.MODID;
+import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.spongepowered.asm.launch.MixinBootstrap;
+import org.spongepowered.asm.mixin.MixinEnvironment;
 
-@Mod(modid = MODID, version = "@VERSION@")
+import net.minecraft.launchwrapper.Launch;
+
 public class Mixingasm {
-    static {
-        MCLib.init();
+    
+    public static final String MODID = "mixingasm";
+    public static final Logger LOGGER = LogManager.getLogger(MODID);
+    
+    public static void run() {
+        try {
+            MixinBootstrap.init();
+            List<String> badTransformers = getBadTransformers();
+            LOGGER.debug("Read bad transformer list: " + badTransformers);
+            for(String badTransformer : badTransformers) {
+                MixinEnvironment.getCurrentEnvironment().addTransformerExclusion(badTransformer);
+            }
+        } catch(NoClassDefFoundError e) {
+            LOGGER.debug("Mixin not found, doing nothing.");
+        }
     }
     
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        MCLibModules.updateCheckAPI.submitModTask(MODID, "@UPDATE_URL@");
+    private static List<String> getBadTransformers() {
+        ConfigHelper helper = new ConfigHelper(MODID);
+        File listFile = new File(Launch.minecraftHome, "config/" + MODID + "/transformer_exclusion_list.txt");
+        helper.createDefaultConfigFileIfMissing(listFile.getParentFile(), false);
+        try {
+            return IOUtils.readLines(new FileReader(listFile)).stream().filter(l -> !l.isEmpty() && !l.startsWith("#")).collect(Collectors.toList());
+        } catch(Exception e) {
+            System.out.println("Failed to read " + listFile);
+            e.printStackTrace();
+        }
+        return Arrays.asList();
     }
+    
 }
