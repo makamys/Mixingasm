@@ -2,20 +2,20 @@
 # transformer exclusion list, avoiding running them an additional time at
 # startup.
 
-# Classes that break the transformer contract by assuming they will only be
-# called once should go on this list.
+# This fixes crashes caused by transformers that wrongly assume they will only
+# get run once. These transformers should be added to this list.
 
 # Delete this file to generate one with the newest defaults.
 
 
-# Fixes Satchels 1.0.2 + RPG Stamina 1.0e
+# Fixes RPG Stamina 1.0e crashing with Satchels 1.0.2
 net.tclproject.mysteriumlib.asm.common.CustomClassTransformer
 
-# Fixes D-Mod 1.0.2 + Backlytra 0.0.3
+# Fixes Backlytra 0.0.3 crashing with D-Mod 1.0.2
 com.unascribed.backlytra.asm.BacklytraTransformer
 
-# Fixes FastStart 1.1 + Resource Loader 1.3 + Flying Cullers 1.3
+# Fixes Resource Loader 1.3 crashing with FastStart 1.1 + Flying Cullers 1.3
 lumien.resourceloader.asm.ClassTransformer
 
-# Fixes Satchels 1.0.2 + Factorization 0.8.109 + ???
+# Fixes Factorization 0.8.109 crashing with Satchels 1.0.2 + ???
 factorization.coremod.ASMTransformer
