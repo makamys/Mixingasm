@@ -1,1 +1,27 @@
+repositories {
+	maven {
+		name = 'sponge'
+		url = 'https://repo.spongepowered.org/maven/'
+	}
+}
+
+dependencies {
+	embed 'org.spongepowered:mixin:0.7+'
+}
+
+jar {
+	manifest {
+        attributes (
+			'MixinConfigs': "${project.modid}.mixin.json",
+            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+            'TweakOrder': 0,
+			
+			// If these two are not set, Forge will not detect the mod, it will only run the mixins
+            'FMLCorePluginContainsFMLMod': 'true',
+            'ForceLoadAsMod': 'true',
+		)
+	}
+}
+
+
 apply from: "makalibs.gradle"
