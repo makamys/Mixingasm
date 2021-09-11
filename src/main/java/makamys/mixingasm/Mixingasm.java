@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.spongepowered.asm.launch.MixinBootstrap;
 import org.spongepowered.asm.mixin.MixinEnvironment;
 
 import net.minecraft.launchwrapper.Launch;
@@ -20,15 +19,10 @@ public class Mixingasm {
     public static final Logger LOGGER = LogManager.getLogger(MODID);
     
     public static void run() {
-        try {
-            MixinBootstrap.init();
-            List<String> badTransformers = getBadTransformers();
-            LOGGER.debug("Read bad transformer list: " + badTransformers);
-            for(String badTransformer : badTransformers) {
-                MixinEnvironment.getCurrentEnvironment().addTransformerExclusion(badTransformer);
-            }
-        } catch(NoClassDefFoundError e) {
-            LOGGER.debug("Mixin not found, doing nothing.");
+        List<String> badTransformers = getBadTransformers();
+        LOGGER.debug("Read bad transformer list: " + badTransformers);
+        for(String badTransformer : badTransformers) {
+            MixinEnvironment.getCurrentEnvironment().addTransformerExclusion(badTransformer);
         }
     }
     
