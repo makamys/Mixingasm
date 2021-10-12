@@ -1,9 +1,10 @@
 # The classes listed in this file will get added to the mixin environment's
-# transformer exclusion list, avoiding running them an additional time at
-# startup.
+# transformer exclusion list, avoiding running them an additional time when
+# processing mixins.
 
-# This fixes crashes caused by transformers that wrongly assume they will only
-# get run once. These transformers should be added to this list.
+# This fixes crashes caused by transformers that make unsafe assumptions which
+# don't hold with Mixin, for example wrongly assuming they will only get run
+# once.
 
 # Delete this file to generate one with the newest defaults.
 
