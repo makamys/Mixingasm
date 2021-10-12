@@ -19,3 +19,12 @@ lumien.resourceloader.asm.ClassTransformer
 
 # Fixes Factorization 0.8.109 crashing with Satchels 1.0.2 + ???
 factorization.coremod.ASMTransformer
+
+# Fixes Gregtech 6.14.20 crashing with CoreTweaks 0.1 + BugTorch-1.1.2
+gregtech.asm.transformers.Minecraft_MinecraftServerIntegratedLaunchMainMenuPartialFix
+
+# Fixes something in GTNH 2.1.1.0 (BetterLoadingScreen 1.3.29-GTNH, probably) crashing with CoreTweaks 0.1
+alexiil.mods.load.coremod.BetterLoadingScreenTransformer
+
+# Fixes something in GTNH 2.1.1.0 (WitchingGadgets 1.2.13-GTNH, probably) crashing with CoreTweaks 0.1
+witchinggadgets.asm.WGCoreTransformer
