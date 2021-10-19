@@ -29,3 +29,6 @@ alexiil.mods.load.coremod.BetterLoadingScreenTransformer
 
 # Fixes something in GTNH 2.1.1.0 (WitchingGadgets 1.2.13-GTNH, probably) crashing with CoreTweaks 0.1
 witchinggadgets.asm.WGCoreTransformer
+
+# Fixes something in GTNH 2.1.1.4QF (BartWorks 0.5.24, probably) crashing with CoreTweaks 0.1.1
+com.github.bartimaeusnek.ASM.BWCoreTransformer
