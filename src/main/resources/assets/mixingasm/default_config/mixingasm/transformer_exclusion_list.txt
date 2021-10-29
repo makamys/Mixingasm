@@ -32,3 +32,6 @@ witchinggadgets.asm.WGCoreTransformer
 
 # Fixes something in GTNH 2.1.1.4QF (BartWorks 0.5.24, probably) crashing with CoreTweaks 0.1.1
 com.github.bartimaeusnek.ASM.BWCoreTransformer
+
+# Fixes RandomThings-2.2.4 crashing with replaymod-1.7.10-2.5.2 and OptiFine_1.7.10_HD_U_E7
+lumien.randomthings.Transformer.RTClassTransformer
