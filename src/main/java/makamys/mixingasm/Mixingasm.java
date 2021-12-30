@@ -57,11 +57,12 @@ public class Mixingasm {
         
         for(IClassTransformer trans : Launch.classLoader.getTransformers()) {
             String name = trans.getClass().getCanonicalName();
-            if((transformerInclusionPatterns.stream().anyMatch(p -> patternMatches(name, p)) || trans instanceof IMixinSafeTransformer)
+            boolean included = false;
+            if((included = (transformerInclusionPatterns.stream().anyMatch(p -> patternMatches(name, p)) || trans instanceof IMixinSafeTransformer))
                     && transformerExclusionPatterns.stream().noneMatch(p -> patternMatches(name, p))) {
                 LOGGER.debug("      Trusting transformer " + name);
             } else {
-                LOGGER.debug("  Not trusting transformer " + name);
+                LOGGER.debug("  Not trusting transformer " + name + (included ? " (because it was excluded via the config)" : ""));
                 badTransformers.add(name);
             }
         }
