@@ -78,6 +78,8 @@ public class Mixingasm {
         ConfigHelper helper = new ConfigHelper(MODID);
         File listFile = new File(Launch.minecraftHome, "config/" + MODID + "/" + name);
         
+        listFile.getParentFile().mkdirs();
+        
         List<String> lines = listFile.exists() ? readConfigLines(listFile) : null;
         boolean overwrite = lines != null && lines.contains(":replaceableFile");
         
