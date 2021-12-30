@@ -1,6 +1,6 @@
 # Mixingasm
 Mod for Minecraft 1.7.10 that improves compatibility between mixin mods and ASM mods.
-See the default [transformer_exclusion_list.txt](src/main/resources/assets/mixingasm/default_config/mixingasm/transformer_exclusion_list.txt) for more info.
+See [transformer_inclusion_list_default.txt](src/main/resources/assets/mixingasm/default_config/mixingasm/transformer_inclusion_list_default.txt) for more info on how it works.
 
 # Usage
 Just drop it in your mods folder. Config is available in the `config/mixingasm` folder.
