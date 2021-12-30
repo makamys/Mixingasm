@@ -1,49 +1,6 @@
-# The classes listed in this file will get added to the mixin environment's
-# transformer exclusion list, avoiding running them an additional time when
-# processing mixins.
-
-# This fixes crashes caused by transformers that make unsafe assumptions which
-# don't hold with Mixin, for example wrongly assuming they will only get run
-# once.
-
-# Delete this file to generate one with the newest defaults.
+# Classes listed in this file will be considered "untrusted" by Mixingasm and
+# added to the mixin environment's transformer exclusion list.
+# See transformer_inclusion_list_default.txt for more info.
 
 
-# Fixes RPG Stamina 1.0e working incorrectly with Satchels 1.0.2:
-# Jumping doesn't consume stamina.
-# (Caused by transformer being incapable of running multiple times.)
-net.tclproject.mysteriumlib.asm.common.CustomClassTransformer
-
-# Fixes Backlytra 0.0.3 crashing with D-Mod 1.0
-com.unascribed.backlytra.asm.BacklytraTransformer
-
-# Fixes Resource Loader 1.3 crashing with FastStart 1.1 + Flying Cullers 1.3 at non-first launch
-lumien.resourceloader.asm.ClassTransformer
-
-# Fixes Factorization 0.8.109 crashing with Satchels 1.0.2 + ???, or Flying Cullers 1.3
-factorization.coremod.ASMTransformer
-
-# Fixes Gregtech 6.14.20 crashing with CoreTweaks 0.1 + BugTorch-1.1.2
-gregtech.asm.transformers.Minecraft_MinecraftServerIntegratedLaunchMainMenuPartialFix
-
-# Fixes something in GTNH 2.1.1.0 (BetterLoadingScreen 1.3.29-GTNH, probably) crashing with CoreTweaks 0.1
-alexiil.mods.load.coremod.BetterLoadingScreenTransformer
-
-# Fixes something in GTNH 2.1.1.0 (WitchingGadgets 1.2.13-GTNH, probably) crashing with CoreTweaks 0.1
-witchinggadgets.asm.WGCoreTransformer
-
-# Fixes something in GTNH 2.1.1.4QF (BartWorks 0.5.24, probably) crashing with CoreTweaks 0.1.1
-com.github.bartimaeusnek.ASM.BWCoreTransformer
-
-# Fixes RandomThings-2.2.4 crashing with replaymod-1.7.10-2.5.2 and OptiFine_1.7.10_HD_U_E7
-lumien.randomthings.Transformer.RTClassTransformer
-
-# Fixes Potion ID Helper 1.0.4 crashing with BugTorch 1.1.2
-com.brandon3055.potionidhelper.asm.ClassTransformer
-
-# Fixes Alfheim BETA-38 working incorrectly with (D-Mod 1.0.2 or Bugtorch 1.1.3 with only fasterEntityLivingBaseIsPotionActiveAndSetAir enabled) + Witching Gadgets 1.1.10 + Serene Seasons 1.2.19:
-# All foliage is white.
-gloomyfolken.hooklib.minecraft.MinecraftClassTransformer
-
-# Fixes Serene Seasons 1.2.19 crashing with Bugtorch 1.1.3 + Alfheim BETA-38 + Witching Gadgets 1.1.10
-sereneseasons.asm.transformer.ColorTransformer
+# --- Untrusted transformers ---

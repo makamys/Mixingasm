@@ -1,5 +1,6 @@
-cpw.mods.fml.common.asm.*
-net.minecraftforge.*
-codechicken.core.asm.*
-codechicken.lib.asm.*
-org.spongepowered.asm.*
+# Classes listed in this file will be considered "trusted" by Mixingasm and
+# may be spared from the mixin environment's transformer exclusion list.
+# See transformer_inclusion_list_default.txt for more info.
+
+
+# --- Additional trusted transformers ---
