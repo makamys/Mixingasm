@@ -5,7 +5,7 @@
 # additional time when processing mixins at startup.
 
 # This fixes issues that can arise from non-Mixin-aware transformers being run
-# in that way.
+# in that way. For example, some transformers break when run more than once.
 
 # A transformer is considered "trusted" if one of these are true...
 # * It's matched by a pattern in this file
