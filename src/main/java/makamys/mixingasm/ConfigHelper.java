@@ -43,7 +43,7 @@ public class ConfigHelper {
     }
     
     private void copyDefaultConfigFile(Path src, Path dest) throws IOException {
-        Files.createDirectories(getParentSafe(src));
+        Files.createDirectories(getParentSafe(dest));
         LOGGER.debug("Copying " + src + " -> " + dest);
         Files.copy(src, dest, StandardCopyOption.REPLACE_EXISTING);
     }
