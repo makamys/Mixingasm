@@ -75,7 +75,7 @@ public class Mixingasm {
     }
     
     private static List<String> readConfig(String name){
-        ConfigHelper helper = new ConfigHelper(MODID);
+        DefaultConfigHelper helper = new DefaultConfigHelper(MODID);
         File listFile = new File(Launch.minecraftHome, "config/" + MODID + "/" + name);
         
         listFile.getParentFile().mkdirs();

@@ -15,12 +15,12 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.launchwrapper.Launch;
 
-public class ConfigHelper {
+public class DefaultConfigHelper {
     
     private final String MODID;
     private final Logger LOGGER;
     
-    public ConfigHelper(String modid) {
+    public DefaultConfigHelper(String modid) {
         this.MODID = modid;
         this.LOGGER = LogManager.getLogger(MODID);
     }
