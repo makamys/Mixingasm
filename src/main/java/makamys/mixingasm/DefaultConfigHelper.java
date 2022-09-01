@@ -67,9 +67,9 @@ public class DefaultConfigHelper {
                     for(Object po : Files.walk(defaultConfigPath).toArray()) {
                         Path destPath = configFile.toPath().resolve(
                                 defaultConfigPath.toAbsolutePath().relativize(((Path)po).toAbsolutePath()).toString());
-                        if(Files.isRegularFile((Path)po)) {
-                            if(!Files.exists(destPath) || overwrite) {
-                                copyDefaultConfigFile((Path)po, destPath);
+                        if(destPath != configFile.toPath()) {
+                            if(!createDefaultConfigFileIfMissing(destPath.toFile(), overwrite)) {
+                                return false;
                             }
                         }
                     }
