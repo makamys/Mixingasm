@@ -48,26 +48,25 @@ public class DefaultConfigHelper {
         Files.copy(src, dest, StandardCopyOption.REPLACE_EXISTING);
     }
     
-    public boolean createDefaultConfigFileIfMissing(File configFile, boolean overwrite) {
-        Path configFolderPath = Paths.get(new File(Launch.minecraftHome, "config").getPath());
-        Path configFilePath = Paths.get(configFile.getPath());
+    public boolean createDefaultConfigFileIfMissing(File destFile, boolean overwrite) {
+        Path destConfigFolderPath = Paths.get(new File(Launch.minecraftHome, "config").getPath());
+        Path destFilePath = Paths.get(destFile.getPath());
 
-        Path relPath = configFolderPath.relativize(configFilePath);
+        Path destRelPath = destConfigFolderPath.relativize(destFilePath);
         
-        if (configFilePath.startsWith(configFolderPath)) {
+        if (destFilePath.startsWith(destConfigFolderPath)) {
             try {
-                Path defaultConfigPath = getDefaultConfigFilePath(relPath);
-                if(Files.isRegularFile(defaultConfigPath)) {
-                    if(!configFile.exists() || overwrite) {
-                        copyDefaultConfigFile(defaultConfigPath, configFile.toPath());
+                Path srcConfigPath = getDefaultConfigFilePath(destRelPath).toAbsolutePath();
+                if(Files.isRegularFile(srcConfigPath)) {
+                    if(!destFile.exists() || overwrite) {
+                        copyDefaultConfigFile(srcConfigPath, destFile.toPath());
                     }
-                } else if(Files.isDirectory(defaultConfigPath)) {
-                    Files.createDirectories(Paths.get(configFile.getPath()));
+                } else if(Files.isDirectory(srcConfigPath)) {
+                    Files.createDirectories(Paths.get(destFile.getPath()));
                     // create contents of directory as well
-                    for(Object po : Files.walk(defaultConfigPath).toArray()) {
-                        Path destPath = configFile.toPath().resolve(
-                                defaultConfigPath.toAbsolutePath().relativize(((Path)po).toAbsolutePath()).toString());
-                        if(destPath != configFile.toPath()) {
+                    for(Path srcChildPath : Files.walk(srcConfigPath).toArray(Path[]::new)) {
+                        Path destPath = destFile.toPath().resolve(srcConfigPath.relativize(srcChildPath).toString());
+                        if(!srcChildPath.equals(srcConfigPath) && srcChildPath.startsWith(srcConfigPath)) {
                             if(!createDefaultConfigFileIfMissing(destPath.toFile(), overwrite)) {
                                 return false;
                             }
@@ -75,11 +74,11 @@ public class DefaultConfigHelper {
                     }
                 }
             } catch (IOException e) {
-                LOGGER.error("Failed to create default config file for " + relPath.toString() + ": " + e.getMessage());
+                LOGGER.error("Failed to create default config file for " + destRelPath.toString() + ": " + e.getMessage());
                 return false;
             }
         } else {
-            LOGGER.debug("Invalid argument for creating default config file: " + relPath.toString()
+            LOGGER.debug("Invalid argument for creating default config file: " + destRelPath.toString()
                     + " (file is not in the config directory)");
             return false;
         }
